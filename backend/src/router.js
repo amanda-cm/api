@@ -11,6 +11,6 @@ router.put('/students/:student_id', studentsMiddleware.validateName, studentsCon
 
 router.get('/houses', housesController.getAll);
 router.post('/houses', housesController.createHouse);
-router.put('/houses', housesController.updateHouse);
+router.delete('/houses/:house_id', housesController.deleteHouse);
 
 module.exports = router;

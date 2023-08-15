@@ -13,16 +13,14 @@ const createHouse = async (house) => {
     return {insertId: createdHouse[0].insertId}; //posição zero para não retornar o buffer e o insertId é a posição que inseriu o elemento no tabela
 };
 
-const updateHouse = async (id, house) => { //id que foi passado na url e o house contem as informações do body
-    const {name, symbol, ghost, color} = house; 
-    const query = 'UPDATE houses SET name = ?, symbol = ?, ghost = ?, color = ? WHERE house_id = ?';
-    const updatedHouse = await connection.execute(query, [name, symbol, ghost, color, id]);
+const deleteHouse = async (id) => {
+    const removedHouse = await connection.execute('DELETE FROM houses WHERE house_id = ?', [id]); 
 
-    return updatedHouse;
+    return removedHouse;
 };
 
 module.exports = {
     getAll,
-    updateHouse,
+    deleteHouse,
     createHouse,
 };

@@ -11,6 +11,6 @@ const validateName = (request, response, next) => { //função para validar a re
     next(); //se estiver tudo ok passa para o proximo passo que está especificado na rota
 };
 
-module.exports = {
+module.exports = { 
     validateName,
 };
