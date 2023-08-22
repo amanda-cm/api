@@ -19,8 +19,16 @@ const deleteHouse = async (request, response) => {
     return response.status(204).json();
 };
 
+const updateHouse = async (request, response) => {
+    const {house_id} = request.params;
+    await housesModel.updateHouse(house_id, request.body);
+
+    return response.status(204).json();
+};
+
 module.exports = {
     getAll,
     deleteHouse,
     createHouse,
+    updateHouse,
 };

@@ -19,8 +19,17 @@ const deleteHouse = async (id) => {
     return removedHouse;
 };
 
+const updateHouse = async (id, house) => {
+    const {name, symbol, ghost, color} = house; 
+    const query = 'UPDATE houses SET name = ?, symbol = ?, ghost = ?, color = ? WHERE house_id = ?';
+    const updatedHouse = await connection.execute(query, [name, symbol, ghost, color, id]);
+
+    return updatedHouse;
+};
+
 module.exports = {
     getAll,
     deleteHouse,
     createHouse,
+    updateHouse,
 };
